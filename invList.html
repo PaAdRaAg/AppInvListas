@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App-Inv-List</title>
+</head>
+<body>
+<center>
+    <h1>Inventario</h1>
+</center>
+<hr>
+<br>
+<label for="text">Características del producto:</label>
+<br>
+<input type="number" id="cantPA" placeholder="Cantidad del producto"/>
+<input type="number" id="codPA" placeholder="Código del producto"/>
+<input type="text" id="nomPA" placeholder="Nombre del producto"/>
+<input type="number" id="costPA" placeholder="Costo del producto"/>
+<input type="text" id="descPA" placeholder="Descripción del producto"/>
+<input type="button" value="Agregar" class="column" id="agregarBtn"/>
+<label for="" id="tabla1"></label>
+<br>
+<br>
+<label for="text">Eliminar producto:</label>
+<br>
+<input type="number" id="codPE" placeholder="Código del producto"/>
+<input type="button" value="Eliminar" class="column" id="btnPE"/>
+<br>
+<br>
+<label for="text">Buscar producto:</label>
+<br>
+<input type="number" id="codPB" placeholder="Código del producto"/>
+<input type="button" value="Buscar" class="column" id="btnPB"/>
+<label for="" id="tabla2"></label>
+<br>
+<br>
+<input type="button" value="Listar productos" class="column" id="btnListar"/>
+<label for="" id="tabla3"></label>
+<br>
+<br>
+<input type="button" value="Listar productos al inverso" class="column" id="btnListarInv"/>
+<label for="" id="tabla4"></label>
+<br>
+<br>
+<input type="button" value="Agregar a posición" class="column" id="btnAgPos"/>
+</body>
+<script src="invListApp.js"></script>
+</html>
