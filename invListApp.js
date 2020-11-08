@@ -1,21 +1,3 @@
-var cantidad = document.querySelector("#cantPA")
-var codigo = document.querySelector("#codPA")
-var nombre = document.querySelector("#nomPA")
-var costo = document.querySelector("#costPA")
-var descripcion = document.querySelector("#descPA")
-var btnAg = document.querySelector("#agregarBtn")
-var tabla1 = document.querySelector("#tabla1")
-var tabla2 = document.querySelector("#tabla2")
-var tabla3 = document.querySelector("#tabla3")
-var tabla4 = document.querySelector("#tabla4")
-var codigoEl = document.querySelector("#codPE")
-var btnEl = document.querySelector("#btnPE")
-var codBu = document.querySelector("#codPB")
-var btnBu = document.querySelector("#btnPB")
-var btnListar = document.querySelector("#btnListar")
-var btnListarInv = document.querySelector("#btnListarInv")
-var btnAgPos = document.querySelector("#btnAgPos")
-
 class Producto{
     constructor(cantidad, codigo, nombre, costo, descripcion){
         this.cantidad = cantidad;
@@ -83,7 +65,7 @@ class Inventario{
         return null;
     };
 
-    insertar(producto, inicio){
+    insertar(cantidad, codigo, nombre, costo, descripcion, inicio){
         if(inicio < 0 || inicio > this.tamaño){
             return null;
         };
@@ -107,16 +89,80 @@ class Inventario{
         this.tamaño++;
     };
 
-    agregarIn(codigo, producto, cantidad, precio, descripcion){
-        const nProducto = new Producto(codigo, producto, cantidad, precio, descripcion);
+    agregarIn(cantidad, codigo, nombre, costo, descripcion){
+        const nProducto = new Producto(cantidad, codigo, nombre, costo, descripcion);
         let aux = this.inicio;
         nProducto.siguiente = aux;
         this.inicio = nProducto;
+        this.tamaño++;
     };
 
     eliminarIn(){
         let aux = this.inicio;
         this.inicio = this.inicio.siguiente;
         aux.siguiente = null;
+        this.tamaño--;
     };
 };
+
+
+var cantidad = document.querySelector("#cantPA")
+var codigo = document.querySelector("#codPA")
+var nombre = document.querySelector("#nomPA")
+var costo = document.querySelector("#costPA")
+var descripcion = document.querySelector("#descPA")
+var btnAg = document.querySelector("#agregarBtn")
+var tabla1 = document.querySelector("#tabla1")
+var tabla2 = document.querySelector("#tabla2")
+var tabla3 = document.querySelector("#tabla3")
+var tabla4 = document.querySelector("#tabla4")
+var codigoEl = document.querySelector("#codPE")
+var btnEl = document.querySelector("#btnPE")
+var codBu = document.querySelector("#codPB")
+var btnBu = document.querySelector("#btnPB")
+var btnListar = document.querySelector("#btnListar")
+var btnListarInv = document.querySelector("#btnListarInv")
+var btnAgPos = document.querySelector("#btnAgPos")
+
+const nInventario = new Inventario();
+const nProducto = new Producto(Number(cantidad.value), Number(codigo.value), String(nombre.value), Number(costo.value), String(descripcion.value));
+
+btnAg.addEventListener('click', () => {
+    nInventario.agregar(Number(cantidad.value), Number(codigo.value), String(nombre.value), Number(costo.value), String(descripcion.value));
+    console.log(nInventario);
+})
+
+/*
+nInventario.agregar(22,22,22,22,22);
+nInventario.agregar(1,1,1,1,1);
+
+console.log(nInventario);
+
+nInventario.agregar(33,33,33,33,33);
+nInventario.agregar(55,55,55,55,55);
+
+console.log(nInventario);
+
+nInventario.agregar(44,44,44,44,44);
+nInventario.agregar(77,77,77,77,77);
+
+console.log(nInventario);
+
+nInventario.eliminar(33);
+
+console.log(nInventario);
+
+console.log(nInventario.buscar(55));
+
+nInventario.insertar(99,99,99,99,99,2);
+
+console.log(nInventario);
+
+nInventario.agregarIn(00,00,00,00,00)
+
+console.log(nInventario);
+
+nInventario.eliminarIn()
+
+console.log(nInventario);
+*/
