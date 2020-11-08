@@ -36,7 +36,7 @@ class Inventario{
     };
 
     agregar(cantidad, codigo, nombre, costo, descripcion){
-        const nProducto = new Producto(cantidad, codigo, nombre, costo, descripcion, null);
+        const nProducto = new Producto(cantidad, codigo, nombre, costo, descripcion);
         if(this.inicio == null){
             this.inicio = nProducto
         } else{
@@ -88,7 +88,7 @@ class Inventario{
             return null;
         };
 
-        const nProducto = new Node(producto);
+        const nProducto = new Producto(cantidad, codigo, nombre, costo, descripcion);
         let aux = this.inicio;
         let anterior;
 
