@@ -128,9 +128,19 @@ const nInventario = new Inventario();
 const nProducto = new Producto(Number(cantidad.value), Number(codigo.value), String(nombre.value), Number(costo.value), String(descripcion.value));
 
 btnAg.addEventListener('click', () => {
+    if(cantidad.value == 0 || codigo.value == 0 || nombre.value == "" || costo.value == 0 || descripcion.value == ""){
+        alert("Llene todos los campos.");
+        return this.tamaño--;
+        
+        }else {
     nInventario.agregar(Number(cantidad.value), Number(codigo.value), String(nombre.value), Number(costo.value), String(descripcion.value));
     console.log(nInventario);
-})
+    };
+});
+
+btnEl.addEventListener('click', () => {
+
+});
 
 /*
 nInventario.agregar(22,22,22,22,22);
