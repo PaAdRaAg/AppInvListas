@@ -125,7 +125,7 @@ var btnListarInv = document.querySelector("#btnListarInv")
 var btnAgPos = document.querySelector("#btnAgPos")
 
 const nInventario = new Inventario();
-const nProducto = new Producto(Number(cantidad.value), Number(codigo.value), String(nombre.value), Number(costo.value), String(descripcion.value));
+
 
 btnAg.addEventListener('click', () => {
     if(cantidad.value == 0 || codigo.value == 0 || nombre.value == "" || costo.value == 0 || descripcion.value == ""){
@@ -133,8 +133,9 @@ btnAg.addEventListener('click', () => {
         return this.tamaño--;
         
         }else {
-    nInventario.agregar(Number(cantidad.value), Number(codigo.value), String(nombre.value), Number(costo.value), String(descripcion.value));
-    console.log(nInventario);
+            const nProducto = new Producto(Number(cantidad.value), Number(codigo.value), String(nombre.value), Number(costo.value), String(descripcion.value));
+            nInventario.agregar(Number(cantidad.value), Number(codigo.value), String(nombre.value), Number(costo.value), String(descripcion.value));
+            console.log(nInventario);
     };
 });
 
